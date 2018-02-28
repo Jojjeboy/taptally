@@ -1,0 +1,73 @@
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let tally of tallies">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ tally.count }}</h5>
+      <small>{{ tally.last | timeAgo }}</small>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <small>{{ tally.name }} => Mål: {{ tally.goal }}</small><small class="float-right refresh-icon" *ngIf="tally.resetEveryday">&#x21bb;</small>
+  </a>
+</div>
+
+
+
+
+<!--
+<div class="list-group">
+  <div class="row" *ngFor="let tally of tallies">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="col">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ tally.count }}</h5>
+          <small>{{ tally.last | timeAgo }}</small>
+        </div>
+      </div>
+      <div class="col"></div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <small>{{ tally.name }} => Mål: {{ tally.goal }}</small><small class="float-right refresh-icon" *ngIf="tally.resetEveryday">&#x21bb;</small>
+    </a>
+  </div>
+
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let tally of tallies">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ tally.count }}</h5>
+      <small>{{ tally.last | timeAgo }}</small>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <small>{{ tally.name }} => Mål: {{ tally.goal }}</small><small class="float-right refresh-icon" *ngIf="tally.resetEveryday">&#x21bb;</small>
+  </a>
+</div>
+<div class="list-group">
+  <div class="row list-group-item list-group-item-action flex-column align-items-start" *ngFor="let tally of tallies">
+      <div class="row">
+        <div class="col">
+          <button (click)="increase(tally)" type="button" class="btn btn-primary btn-lg">&#8607;</button>
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ tally.count }}</h5>
+              <small>{{ tally.last | timeAgo }}</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col"> 
+          <button (click)="decrease(tally)" type="button" class="btn btn-secondary btn-lg">&#8609;</button>
+        </div>
+      </div>
+      <div class="row">
+          <small>{{ tally.name }} => Mål: {{ tally.goal }}</small><small class="float-right refresh-icon" *ngIf="tally.resetEveryday">&#x21bb;</small>
+      </div>
+    </div>
+</div>-->
