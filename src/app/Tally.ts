@@ -6,4 +6,4 @@ export class Tally {
     current: number;
     count: number;
     last: Date;
-  } 
+  }

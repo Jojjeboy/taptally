@@ -12,17 +12,26 @@ import { TimeAgoPipe } from 'time-ago-pipe';
 })
 export class TalliesComponent implements OnInit {
 
-  constructor(private counterService: CounterService) {}
-
-
+  constructor(private counterService: CounterService) { }
   tallies = TALLIES;
+
+  public getCount() {
+    return this.counterService.count;
+  }
+
+  public increase(tally): void {
+    tally.count = tally.count + tally.step;
+  }
+  public decrease(tally): void {
+    if (tally.count > 0) {
+      tally.count = tally.count - tally.step;
+    }
+  }
 
   ngOnInit() {
     this.tallies.forEach((tally) => {
       tally.count = this.counterService.getCurrentCount(tally);
     });
-
-    
   }
 
 }

@@ -9,9 +9,9 @@ import { CounterService } from '../app/counter.service';
 export class AppComponent {
   title = 'app';
   constructor(private counterService: CounterService) {}
+  /*
   public getCount() {
     return this.counterService.count;
-    
   }
   public increase(){
     this.counterService.count += 1;
@@ -20,5 +20,5 @@ export class AppComponent {
     if(this.counterService.count > 0){
       this.counterService.count -= 1;
     }
-  }
+  }*/
 }

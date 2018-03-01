@@ -9,6 +9,5 @@ export class CounterService {
 
   public getCurrentCount(tally: Tally) {
     return tally.step * tally.count;
-    
   }
 }

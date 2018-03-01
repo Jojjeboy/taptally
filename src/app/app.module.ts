@@ -1,23 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CounterService } from '../app/counter.service';
-//import {WebStorageModule, LocalStorageService} from "angular-localstorage";
-
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TalliesComponent } from './tallies/tallies.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { TestComponent } from './test/test.component';
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: AppComponent,
+    data: { title: 'Tap Tally' }
+  },
+  {
+    path: 'test',
+    component: TestComponent,
+    data: { title: 'test' }
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     TalliesComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    TestComponent
   ],
   imports: [
     BrowserModule
-    //,WebStorageModule
   ],
   providers: [/*LocalStorageService*/CounterService, TimeAgoPipe],
   bootstrap: [AppComponent]
