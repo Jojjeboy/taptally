@@ -1,6 +1,12 @@
-.refresh-icon{
-    -ms-transform: rotate(45deg); /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Safari 3-8 */
+.refresh-icon {
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Safari 3-8 */
     transform: rotate(45deg);
     margin-top: 5px;
+}
+
+.bg-tally-light {
+    background: #f3f3f3;
 }
