@@ -18,7 +18,7 @@ export class TallyComponent implements OnInit {
   tallies = TALLIES;
 
   ngOnInit() {
-    if(this.tally == null){
+    if (this.tally == null) {
       this.tally = TALLIES[0];
     }
   }

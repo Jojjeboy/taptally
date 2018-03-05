@@ -1,8 +1,19 @@
 <div class="card-body">
-    <h5 class="card-title">{{ tally.name }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ tally.count }} <small *ngIf="tally.resetEveryday" class="refresh-icon">- &#x21bb;</small></h6>
+    <h5 class="card-title">{{ tally.name }}
+        <!--<small *ngIf="tally.resetEveryday" class="refresh-icon">&#x21bb;</small>-->
+        <svg id="i-reload" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M29 16 C29 22 24 29 16 29 8 29 3 22 3 16 3 10 8 3 16 3 21 3 25 6 27 9 M20 10 L27 9 28 2" />
+        </svg>
+        <span class="float-right">{{ tally.count }}</span></h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button type="button" (click)="increase()" class="btn btn-primary">Up</button>
-    <button type="button" (click)="decrease()" class="btn btn-primary">Down</button>
-    <button type="button" (click)="reset()" class="btn btn-danger">Danger</button>
+    <button type="button" (click)="increase()" class="btn btn-outline-light outline-none">
+        <svg id="i-chevron-top" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="green" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M30 20 L16 8 2 20" />
+        </svg>
+    </button>
+    <button type="button" (click)="decrease()" class="btn btn-outline-light float-right outline-none">
+        <svg id="i-chevron-bottom" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="red" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M30 12 L16 24 2 12" />
+        </svg>
+    </button>
 </div>
