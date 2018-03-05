@@ -1,10 +1,10 @@
-<li class="list-group-item d-flex justify-content-between lh-condensed">
-    <div>
-        <h6 class="my-0">{{ tally.name }} <small class="refresh-icon">&#x21bb;</small></h6>
-        <small class="text-muted">Brief description</small>
+<div class="card w-100" *ngIf="tally">
+    <div class="card-body bg-tally-light">
+        <h5 class="card-title">{{ tally.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ tally.count }}</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text" *ngIf="tally.resetEveryday"><small class="refresh-icon">&#x21bb;</small></p>
+        <a href="#" class="card-link">Up</a>
+        <a href="#" class="card-link">Down</a>
     </div>
-    <div>
-        <span class="text-muted">{{ tally.count }}</span><br />
-
-    </div>
-</li>
+</div>

@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tally } from '../Tally';
+import { TALLIES } from '../mock-tallies';
+import { DatePipe } from '@angular/common';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 @Component({
   selector: 'app-tally',
@@ -9,11 +12,16 @@ import { Tally } from '../Tally';
 
 
 export class TallyComponent implements OnInit {
-  @Input() Tally: Tally;
+  @Input() tally: Tally;
 
   constructor() { }
+  tallies = TALLIES;
 
   ngOnInit() {
+    if(this.tally == null){
+      this.tally = TALLIES[0];
+  
+    }
   }
 
 }
