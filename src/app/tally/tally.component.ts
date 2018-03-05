@@ -20,8 +20,19 @@ export class TallyComponent implements OnInit {
   ngOnInit() {
     if(this.tally == null){
       this.tally = TALLIES[0];
-  
     }
+  }
+
+  public increase(): void {
+    this.tally.count = this.tally.count + this.tally.step;
+  }
+  public decrease(): void {
+    if (this.tally.count > 0) {
+      this.tally.count = this.tally.count - this.tally.step;
+    }
+  }
+  public reset(): void {
+    this.tally.count = 0;
   }
 
 }

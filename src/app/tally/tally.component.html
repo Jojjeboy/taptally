@@ -2,6 +2,7 @@
     <h5 class="card-title">{{ tally.name }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ tally.count }} <small *ngIf="tally.resetEveryday" class="refresh-icon">- &#x21bb;</small></h6>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Up</a>
-    <a href="#" class="card-link">Down</a>
+    <button type="button" (click)="increase()" class="btn btn-primary">Up</button>
+    <button type="button" (click)="decrease()" class="btn btn-primary">Down</button>
+    <button type="button" (click)="reset()" class="btn btn-danger">Danger</button>
 </div>

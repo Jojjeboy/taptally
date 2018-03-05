@@ -14,10 +14,17 @@ export class TalliesComponent implements OnInit {
 
   constructor(private counterService: CounterService) { }
   tallies = TALLIES;
+  selectedTally;
+  
+  public setSelectedTally(tally){
+    this.selectedTally = tally;
+  }
 
   public getCount() {
     return this.counterService.count;
   }
+
+
 
   public increase(tally): void {
     tally.count = tally.count + tally.step;
@@ -32,6 +39,9 @@ export class TalliesComponent implements OnInit {
     this.tallies.forEach((tally) => {
       tally.count = this.counterService.getCurrentCount(tally);
     });
+    if(this.selectedTally == null){
+      this.selectedTally = this.tallies[0];
+    }
   }
 
 }
