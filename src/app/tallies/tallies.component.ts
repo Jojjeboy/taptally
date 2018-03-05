@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tally } from '../Tally';
 import { TALLIES } from '../mock-tallies';
-import { CounterService } from '../../app/counter.service';
+import { LocalStorageServiceService } from '../../app/local-storage-service.service';
 import { DatePipe } from '@angular/common';
 import { TimeAgoPipe } from 'time-ago-pipe';
 
@@ -12,19 +12,15 @@ import { TimeAgoPipe } from 'time-ago-pipe';
 })
 export class TalliesComponent implements OnInit {
 
-  constructor(private counterService: CounterService) { }
+  constructor(private localStorageServiceService: LocalStorageServiceService) {
+    console.log(localStorageServiceService.getNrOfItems());
+   }
   tallies = TALLIES;
   selectedTally;
 
   public setSelectedTally(tally) {
     this.selectedTally = tally;
   }
-
-  public getCount() {
-    return this.counterService.count;
-  }
-
-
 
   public increase(tally): void {
     tally.count = tally.count + tally.step;
@@ -36,9 +32,6 @@ export class TalliesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tallies.forEach((tally) => {
-      tally.count = this.counterService.getCurrentCount(tally);
-    });
     if (this.selectedTally == null) {
       this.selectedTally = this.tallies[0];
     }

@@ -3,6 +3,7 @@ import { Tally } from '../app/Tally';
 
 export const TALLIES: Tally[] = [
     {
+      uuid: '69314ec3-c158-47bd-b5d4-ec4c4a4c2c60',
       name: 'Pushups',
       step: 1,
       goal: 30,
@@ -12,6 +13,7 @@ export const TALLIES: Tally[] = [
       current: null
     },
     {
+      uuid: '382c8442-0d16-4996-a568-1439de830660',
       name: 'Situps',
       step: 1,
       goal: 20,

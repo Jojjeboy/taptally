@@ -8,7 +8,7 @@ import { CounterService } from '../app/counter.service';
 })
 export class AppComponent {
   title = 'app';
-  constructor(private counterService: CounterService) {}
+  constructor() {}
   /*
   public getCount() {
     return this.counterService.count;

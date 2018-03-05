@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CounterService } from '../app/counter.service';
+import { LocalStorageServiceService } from '../app/local-storage-service.service';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -20,7 +20,7 @@ import { TallyComponent } from './tally/tally.component';
   imports: [
     BrowserModule
   ],
-  providers: [/*LocalStorageService*/CounterService, TimeAgoPipe],
+  providers: [/*LocalStorageService*/LocalStorageServiceService, TimeAgoPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
