@@ -1,5 +1,8 @@
 import { Tally } from '../app/Tally';
 
+const now = new Date();
+const first = new Date(now.setDate(now.getDay() - 2));
+const second = new Date(now.setDate(now.getDay() - 4));
 
 export const TALLIES: Tally[] = [
     {
@@ -8,8 +11,8 @@ export const TALLIES: Tally[] = [
       step: 1,
       goal: 30,
       resetEveryday: true,
-      count: 0,
-      last: new Date('Wed Feb 28 2018 08:42:58 GMT+0100 (Västeuropa, normaltid)'),
+      count: 55,
+      last: first,
       current: null
     },
     {
@@ -19,7 +22,7 @@ export const TALLIES: Tally[] = [
       goal: 20,
       resetEveryday: true,
       count: 0,
-      last: new Date('Wed Feb 28 2018 08:42:58 GMT+0100 (Västeuropa, normaltid)'),
+      last: second,
       current: null
     }
   ];
