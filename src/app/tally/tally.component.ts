@@ -39,6 +39,12 @@ export class TallyComponent implements OnInit {
   }
 
   save(tally: Tally) {
+    tally = this.touchDate(tally);
     this.localStorageServiceService.update(tally);
+  }
+
+  touchDate(tally: Tally): Tally {
+    tally.last = new Date();
+    return tally;
   }
 }

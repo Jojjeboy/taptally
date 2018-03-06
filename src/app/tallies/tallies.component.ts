@@ -20,9 +20,9 @@ export class TalliesComponent implements OnInit {
     this.tallies = this.localStorageServiceService.getAll();
     if (this.tallies.length === 0) {
       this.tallies = TALLIES;
-      this.selectedTally = this.tallies[0];
       this.localStorageServiceService.writeLS(this.tallies);
     }
+    this.selectedTally = this.tallies[0];
   }
 
   public setSelectedTally(tally) {
