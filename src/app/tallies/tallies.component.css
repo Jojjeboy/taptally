@@ -14,3 +14,13 @@
 .outline-none {
     outline: none;
 }
+
+li.tally-active{
+    background: #d4e7b8;
+}
+
+app-tally{
+    border-bottom: 0;
+    border-radius: 0;
+    border-left: 0;
+}

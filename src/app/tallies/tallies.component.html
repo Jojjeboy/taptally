@@ -15,17 +15,17 @@
                 <li class="list-group-item d-flex justify-content-between p-0 border-right-0">
                     <app-tally [tally]="selectedTally" class="card w-100 bg-tally-light"></app-tally>
                 </li>
-                <li (click)="setSelectedTally(tally)" [ngClass]="{'text-success': isCurrentTally(tally)}" class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let tally of tallies">
+                <li (click)="setSelectedTally(tally)" [ngClass]="{'tally-active': isCurrentTally(tally)}" class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let tally of tallies">
                     <div>
                         <h6 class="my-0">{{ tally.name }}
                             <svg id="i-reload" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                                 <path d="M29 16 C29 22 24 29 16 29 8 29 3 22 3 16 3 10 8 3 16 3 21 3 25 6 27 9 M20 10 L27 9 28 2" />
                             </svg>
                         </h6>
-                        <small [ngClass]="{'text-success': isCurrentTally(tally)}">{{tally.last | timeAgo}}</small>
+                        <small>{{tally.last | timeAgo}}</small>
                     </div>
                     <div>
-                        <span [ngClass]="{'text-success': isCurrentTally(tally)}">{{ tally.count }}</span><br />
+                        <span>{{ tally.count }}</span><br />
 
                     </div>
                 </li>
