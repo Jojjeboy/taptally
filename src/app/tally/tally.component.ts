@@ -3,6 +3,7 @@ import { Tally } from '../Tally';
 import { TALLIES } from '../mock-tallies';
 import { DatePipe } from '@angular/common';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { LocalStorageServiceService } from '../../app/local-storage-service.service';
 
 @Component({
   selector: 'app-tally',
@@ -14,7 +15,7 @@ import { TimeAgoPipe } from 'time-ago-pipe';
 export class TallyComponent implements OnInit {
   @Input() tally: Tally;
 
-  constructor() { }
+  constructor(private localStorageServiceService: LocalStorageServiceService) { }
   tallies = TALLIES;
 
   ngOnInit() {
@@ -25,14 +26,19 @@ export class TallyComponent implements OnInit {
 
   public increase(): void {
     this.tally.count = this.tally.count + this.tally.step;
+    this.save(this.tally);
   }
   public decrease(): void {
     if (this.tally.count > 0) {
       this.tally.count = this.tally.count - this.tally.step;
+      this.save(this.tally);
     }
   }
   public reset(): void {
     this.tally.count = 0;
   }
 
+  save(tally: Tally) {
+    this.localStorageServiceService.update(tally);
+  }
 }

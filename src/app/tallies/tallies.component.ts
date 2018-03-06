@@ -12,29 +12,20 @@ import { TimeAgoPipe } from 'time-ago-pipe';
 })
 export class TalliesComponent implements OnInit {
 
-  constructor(private localStorageServiceService: LocalStorageServiceService) {
-    console.log(localStorageServiceService.getNrOfItems());
-   }
-  tallies = TALLIES;
+  constructor(private localStorageServiceService: LocalStorageServiceService) { }
+  tallies = [];
   selectedTally;
+
+  ngOnInit() {
+    this.tallies = this.localStorageServiceService.getAll();
+    if (this.tallies.length === 0) {
+      this.tallies = TALLIES;
+      this.selectedTally = this.tallies[0];
+      this.localStorageServiceService.writeLS(this.tallies);
+    }
+  }
 
   public setSelectedTally(tally) {
     this.selectedTally = tally;
   }
-
-  public increase(tally): void {
-    tally.count = tally.count + tally.step;
-  }
-  public decrease(tally): void {
-    if (tally.count > 0) {
-      tally.count = tally.count - tally.step;
-    }
-  }
-
-  ngOnInit() {
-    if (this.selectedTally == null) {
-      this.selectedTally = this.tallies[0];
-    }
-  }
-
 }

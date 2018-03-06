@@ -56,7 +56,7 @@ export class LocalStorageServiceService {
     const uuid = obj.uuid;
     let foundItem = false;
     while (iter < lsItems.length) {
-      if (uuid === lsItems[iter].uiid) {
+      if (uuid === lsItems[iter].uuid) {
         lsItems[iter] = obj;
         foundItem = true;
       }
@@ -70,7 +70,7 @@ export class LocalStorageServiceService {
     const lsItems = this.getAll();
     let iter = 0;
     while (iter < lsItems.length) {
-      if (key === lsItems[iter].uiid) {
+      if (key === lsItems[iter].uuid) {
         return true;
       }
       iter++;
