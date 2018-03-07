@@ -5,6 +5,8 @@ import { LocalStorageServiceService } from '../../app/local-storage-service.serv
 import { DatePipe } from '@angular/common';
 import { TimeAgoPipe } from 'time-ago-pipe';
 
+
+
 @Component({
   selector: 'app-tallies',
   templateUrl: './tallies.component.html',
@@ -12,15 +14,15 @@ import { TimeAgoPipe } from 'time-ago-pipe';
 })
 export class TalliesComponent implements OnInit {
 
-  constructor(private localStorageServiceService: LocalStorageServiceService) { }
+  constructor(private localStorageService: LocalStorageServiceService) { }
   tallies = [];
   selectedTally;
 
   ngOnInit() {
-    this.tallies = this.localStorageServiceService.getAll();
+    this.tallies = this.localStorageService.getAll();
     if (this.tallies.length === 0) {
       this.tallies = TALLIES;
-      this.localStorageServiceService.writeLS(this.tallies);
+      this.localStorageService.writeLS(this.tallies);
     }
     this.resetOld();
     this.selectedTally = this.tallies[0];
@@ -32,8 +34,8 @@ export class TalliesComponent implements OnInit {
 
   public isCurrentTally(tally: Tally){
     return this.selectedTally.uuid == tally.uuid;
-
   }
+
 
   resetOld(): void{
     this.tallies.forEach( (tally) => {

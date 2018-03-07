@@ -8,6 +8,29 @@ import { TalliesComponent } from './tallies/tallies.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { TestComponent } from './test/test.component';
 import { TallyComponent } from './tally/tally.component';
+import { TallyDetailComponent } from './tally-detail/tally-detail.component';
+
+
+const appRoutes: Routes = [
+  { 
+    path: 'tally/:id',
+    component: TallyDetailComponent 
+  },
+  {
+    path: 'tallies',
+    component: TalliesComponent,
+    data: { title: 'Tallies List' }
+  },
+  { path: '',
+    redirectTo: '/tallies',
+    pathMatch: 'full'
+  },
+  
+  { path: 'tally',
+    redirectTo: '/tallies',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   declarations: [
@@ -15,10 +38,15 @@ import { TallyComponent } from './tally/tally.component';
     TalliesComponent,
     TimeAgoPipe,
     TestComponent,
-    TallyComponent
+    TallyComponent,
+    TallyDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: false } // <-- debugging purposes only
+    )
   ],
   providers: [/*LocalStorageService*/LocalStorageServiceService, TimeAgoPipe],
   bootstrap: [AppComponent]

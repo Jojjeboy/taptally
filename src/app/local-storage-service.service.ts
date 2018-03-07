@@ -78,7 +78,7 @@ export class LocalStorageServiceService {
     return false;
   }
 
-  getItem(key: String): boolean {
+  getItem(key: String): any {
     const lsItems = this.getAll();
     let iter = 0;
     while (iter < lsItems.length) {

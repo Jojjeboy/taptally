@@ -1,12 +1,23 @@
 <div class="container">
-  
-<!--
-    <p> {{ counterService.count }}</p>
-
-    <button (click)="increase()" type="button" class="btn btn-primary btn-lg">&#8607;</button>
-    <button (click)="decrease()" type="button" class="btn btn-secondary btn-lg">&#8609;</button>
-  -->
-    <app-tallies></app-tallies>
-  
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>TapTally</h2>
+        <p class="lead">Create as many tap tallies you wan't and keep track of virtually anything, completelly free.</p>
+    </div>
+    <router-outlet></router-outlet>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2018 Johannes Kärnstam</p>
+      <ul class="list-inline">
+          <li class="list-inline-item">
+              <a href="mailto:snack@johanneskarnstam.se">snack@johanneskarnstam.se</a>
+          </li>
+          <li class="list-inline-item">
+              <a href="#">Terms</a>
+          </li>
+          <li class="list-inline-item">
+              <a href="#">Support</a>
+          </li>
+      </ul>
+  </footer>
 </div>
 
