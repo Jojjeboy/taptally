@@ -9,12 +9,17 @@ import { TalliesComponent } from './tallies/tallies.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { TallyComponent } from './tallies/tally/tally.component';
 import { EditTallyComponent } from './edit-tally/edit-tally.component';
+import { AddTallyComponent } from './add-tally/add-tally.component';
 
 
 const appRoutes: Routes = [
   {
     path: 'tally/edit/:id',
     component: EditTallyComponent
+  },
+  {
+    path: 'tally/add',
+    component: AddTallyComponent
   },
   {
     path: 'tallies',
@@ -39,6 +44,7 @@ const appRoutes: Routes = [
     TimeAgoPipe,
     TallyComponent,
     EditTallyComponent,
+    AddTallyComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [/*LocalStorageService*/LocalStorageServiceService, TimeAgoPipe],
+  providers: [LocalStorageServiceService, TimeAgoPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
