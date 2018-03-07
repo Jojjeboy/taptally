@@ -32,6 +32,10 @@ export class TalliesComponent implements OnInit {
     this.selectedTally = tally;
   }
 
+  public getSelectedTally(tally: Tally): Tally {
+    return this.selectedTally;
+  }
+
   public isCurrentTally(tally: Tally) {
     return this.selectedTally.uuid === tally.uuid;
   }

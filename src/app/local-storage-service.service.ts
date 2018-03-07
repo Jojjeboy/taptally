@@ -33,7 +33,7 @@ export class LocalStorageServiceService {
     localStorage.removeItem(this.key);
   }
 
-  removeItem(key) {
+  removeItem(key: String) {
     const lsItems = this.getAll();
     const newData: any[] = [];
     let iter = 0;

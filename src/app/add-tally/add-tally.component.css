@@ -1,0 +1,19 @@
+.b-0 {
+    border: none !important;
+}
+
+.b-1-top {
+    border-top: 1px solid rgba(0, 0, 0, .125);
+}
+
+.b-1-right {
+    border-right: 1px solid rgba(0, 0, 0, .125);
+}
+
+.b-1-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.b-1-left {
+    border-left: 1px solid rgba(0, 0, 0, .125);
+}

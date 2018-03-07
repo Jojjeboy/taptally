@@ -33,6 +33,11 @@ export class EditTallyComponent implements OnInit {
     }
   }
 
+  public delete(): void {
+    this.localStorageService.removeItem(this.uuid);
+    this.router.navigate(['/']);
+  }
+
   public save(): void {
     this.localStorageService.update(this.tally);
     this.router.navigate(['/']);

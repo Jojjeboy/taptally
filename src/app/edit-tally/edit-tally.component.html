@@ -56,8 +56,14 @@
                                 </div>
                             </div>
                         </div>
-                        <button (click)="save()" type="submit" class="btn btn-primary">Submit</button>
-                        <a class="btn btn-primary" class="float-right" href="/" role="button">Discard</a>
+                        <div class="row">
+                            <div class="col">
+                                <button (click)="save()" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-danger float-right" (click)="delete()">Delete</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

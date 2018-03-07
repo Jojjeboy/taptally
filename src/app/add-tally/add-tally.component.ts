@@ -18,6 +18,7 @@ export class AddTallyComponent implements OnInit {
   ) {
     this.tally.uuid = Uuid.UUID();
     this.tally.count = 0;
+    this.tally.last = new Date();
   }
 
   ngOnInit() {

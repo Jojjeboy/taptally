@@ -9,7 +9,7 @@
                 <li class="list-group-item d-flex justify-content-between p-0 border-right-0">
                     <app-tally [tally]="selectedTally" class="card w-100 bg-tally-light"></app-tally>
                 </li>
-                <li (click)="setSelectedTally(tally)" [ngClass]="{'tally-active': isCurrentTally(tally)}" class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let tally of tallies">
+                <li (click)="setSelectedTally(tally)" class="list-group-item d-flex justify-content-between lh-condensed" [ngClass]="{'text-success':tally.uuid === selectedTally.uuid}" *ngFor="let tally of tallies">
                     <div>
                         <h6 class="my-0">
                             <span>{{ tally.name }}</span>
@@ -25,26 +25,29 @@
                     </div>
                 </li>
             </ul>
-            <div class="row">
-                <div class="col">
-                    <p>
-                        <a class="btn-block btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                  Add new tally
-                                </a>
-                    </p>
-                    <div class="collapse" id="collapseExample">
-                        <app-add-tally></app-add-tally>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="col">
+            <div id="accordion">
+                <div class="card">
+                    <div class="" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-success btn-block toggle-add-tally-btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Add tally
+              </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <app-add-tally></app-add-tally>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!--<form class="card p-2">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Add tally">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary">Add</button>
-                    </div>
-                </div>
-            </form>-->
         </div>
     </div>
 </div>
