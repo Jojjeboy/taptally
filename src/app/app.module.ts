@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocalStorageServiceService } from '../app/local-storage-service.service';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TalliesComponent } from './tallies/tallies.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
-import { TestComponent } from './test/test.component';
 import { TallyComponent } from './tallies/tally/tally.component';
 import { EditTallyComponent } from './edit-tally/edit-tally.component';
 
@@ -37,12 +37,12 @@ const appRoutes: Routes = [
     AppComponent,
     TalliesComponent,
     TimeAgoPipe,
-    TestComponent,
     TallyComponent,
-    EditTallyComponent
+    EditTallyComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only

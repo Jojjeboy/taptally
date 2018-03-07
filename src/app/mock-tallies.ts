@@ -1,8 +1,8 @@
 import { Tally } from '../app/Tally';
 
 const now = new Date();
-const first = new Date(now.setDate(now.getDay() - 2));
-const second = new Date(now.setDate(now.getDay() - 4));
+const first = new Date(now.setHours(now.getHours() - 2));
+const second = new Date(now.setHours(now.getHours() - 4));
 
 export const TALLIES: Tally[] = [
     {
@@ -12,17 +12,15 @@ export const TALLIES: Tally[] = [
       goal: 30,
       resetEveryday: true,
       count: 55,
-      last: first,
-      current: null
+      last: first
     },
     {
       uuid: '382c8442-0d16-4996-a568-1439de830660',
       name: 'Situps',
       step: 1,
       goal: 20,
-      resetEveryday: true,
+      resetEveryday: false,
       count: 0,
-      last: second,
-      current: null
+      last: second
     }
   ];

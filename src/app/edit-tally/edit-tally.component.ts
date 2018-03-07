@@ -31,16 +31,10 @@ export class EditTallyComponent implements OnInit {
       console.log('booooogus id');
       this.router.navigate(['/']);
     }
-
-
   }
 
-  initTally(uuid: String): any {
-    this.tally = this.localStorageService.getItem(uuid);
-    if (!this.tally) {
-      return false;
-    }
-    return this.tally;
+  public save(): void {
+    this.localStorageService.update(this.tally);
+    this.router.navigate(['/']);
   }
-
 }

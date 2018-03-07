@@ -2,13 +2,64 @@
     <div class="col">
         <div class="col-12 mb-4">
             <div class="card">
-                <h3 class="card-header">{{ tally.name }} <div class="float-right">{{ tally.count }}</div></h3>
+                <h3 class="card-header">{{ tally.name }}
+                    <div class="float-right">{{ tally.count }}</div>
+                </h3>
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <form>
+                        <div class="form-group">
+                            <label for="tallyname">Tally name</label>
+                            <input type="text" name="tallyname" required [(ngModel)]="tally.name" class="form-control" id="tallyname" aria-describedby="tallyName" placeholder="Enter tally name">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="step"><small>Step</small></label>
+                                    <input type="number" class="form-control form-control-sm" required [(ngModel)]="tally.step" id="step" placeholder="Step" name="tallystep">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="count"><small>Current count</small></label>
+                                    <input type="number" class="form-control form-control-sm" [(ngModel)]="tally.count" id="count" placeholder="Count" name="tallycount">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="goal"><small>Goal</small></label>
+                                    <input type="number" class="form-control form-control-sm" [(ngModel)]="tally.goal" id="goal" placeholder="Goal" name="tallygoal">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="uuid">UUID</label>
+                                    <input type="text" class="form-control" required [(ngModel)]="tally.uuid" id="uuid" name="tallyuuid" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="alert alert-info" role="alert">
+                                    Edited {{ tally.last | timeAgo }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" [(ngModel)]="tally.resetEveryday" name="tallyresetEveryday" class="custom-control-input" id="resetEveryday">
+                                        <label class="custom-control-label" for="resetEveryday">Reset this tally everyday</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button (click)="save()" type="submit" class="btn btn-primary">Submit</button>
+                        <a class="btn btn-primary" class="float-right" href="/" role="button">Discard</a>
+                    </form>
                 </div>
-              </div>
+            </div>
         </div>
     </div>
-</div>
