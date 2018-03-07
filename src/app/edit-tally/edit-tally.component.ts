@@ -18,7 +18,6 @@ export class EditTallyComponent implements OnInit {
     private router: Router
   ) {
     this.route.params.subscribe(params => {
-      console.log(params.id);
       if (params.id) {
         this.uuid = params.id;
       }

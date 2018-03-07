@@ -40,7 +40,6 @@ export class TallyComponent implements OnInit {
   }
 
   public goToDetailsPage() {
-    console.log('yyyyyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey');
     if (this.localStorageService.itemExists(this.tally.uuid)) {
       this.router.navigate(['tally/edit/' + this.tally.uuid]);
     }
