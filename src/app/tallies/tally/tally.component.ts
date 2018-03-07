@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tally } from '../Tally';
-import { TALLIES } from '../mock-tallies';
+import { Tally } from '../../Tally';
+import { TALLIES } from '../../mock-tallies';
 import { DatePipe } from '@angular/common';
 import { TimeAgoPipe } from 'time-ago-pipe';
-import { LocalStorageServiceService } from '../../app/local-storage-service.service';
+import { LocalStorageServiceService } from '../../local-storage-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -41,8 +41,8 @@ export class TallyComponent implements OnInit {
 
   public goToDetailsPage() {
     console.log('yyyyyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey');
-    if (this.localStorageService.itemExists(this.tally.uuid)){
-      this.router.navigate(['tally/'+this.tally.uuid]);
+    if (this.localStorageService.itemExists(this.tally.uuid)) {
+      this.router.navigate(['tally/edit/' + this.tally.uuid]);
     }
   }
 

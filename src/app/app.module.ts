@@ -7,14 +7,14 @@ import { AppComponent } from './app.component';
 import { TalliesComponent } from './tallies/tallies.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { TestComponent } from './test/test.component';
-import { TallyComponent } from './tally/tally.component';
-import { TallyDetailComponent } from './tally-detail/tally-detail.component';
+import { TallyComponent } from './tallies/tally/tally.component';
+import { EditTallyComponent } from './edit-tally/edit-tally.component';
 
 
 const appRoutes: Routes = [
-  { 
-    path: 'tally/:id',
-    component: TallyDetailComponent 
+  {
+    path: 'tally/edit/:id',
+    component: EditTallyComponent
   },
   {
     path: 'tallies',
@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     redirectTo: '/tallies',
     pathMatch: 'full'
   },
-  
+
   { path: 'tally',
     redirectTo: '/tallies',
     pathMatch: 'full'
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     TimeAgoPipe,
     TestComponent,
     TallyComponent,
-    TallyDetailComponent
+    EditTallyComponent
   ],
   imports: [
     BrowserModule,

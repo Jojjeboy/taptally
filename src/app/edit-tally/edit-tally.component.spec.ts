@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TallyDetailComponent } from './tally-detail.component';
+import { EditTallyComponent } from './edit-tally.component';
 
 describe('TallyDetailComponent', () => {
-  let component: TallyDetailComponent;
-  let fixture: ComponentFixture<TallyDetailComponent>;
+  let component: EditTallyComponent;
+  let fixture: ComponentFixture<EditTallyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TallyDetailComponent ]
+      declarations: [ EditTallyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TallyDetailComponent);
+    fixture = TestBed.createComponent(EditTallyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

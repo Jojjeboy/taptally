@@ -32,12 +32,12 @@ export class TalliesComponent implements OnInit {
     this.selectedTally = tally;
   }
 
-  public isCurrentTally(tally: Tally){
-    return this.selectedTally.uuid == tally.uuid;
+  public isCurrentTally(tally: Tally) {
+    return this.selectedTally.uuid === tally.uuid;
   }
 
 
-  resetOld(): void{
+  resetOld(): void {
     this.tallies.forEach( (tally) => {
       if (tally.resetEveryday && this.isOld(tally.last)) {
         tally.count = 0;
@@ -46,8 +46,8 @@ export class TalliesComponent implements OnInit {
   }
 
   isOld(tallyDate): Boolean {
-    var today = new Date();
-    today.setHours(0,0,0,0)
+    const today = new Date();
+    today.setHours(0, 0 , 0, 0);
     if (tallyDate < today) {
       return true;
     }
