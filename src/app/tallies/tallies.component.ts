@@ -4,6 +4,8 @@ import { TALLIES } from '../mock-tallies';
 import { LocalStorageServiceService } from '../../app/local-storage-service.service';
 import { DatePipe } from '@angular/common';
 import { TimeAgoPipe } from 'time-ago-pipe';
+declare var jquery: any;
+declare var $: any;
 
 
 
@@ -56,5 +58,11 @@ export class TalliesComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  public showMessage(tally: Tally) {
+    // alert('Close accordion');
+    $('#collapseOne').collapse('toggle');
+    this.setSelectedTally(tally);
   }
 }

@@ -6,19 +6,19 @@
         <form>
             <div class="form-group">
                 <label for="tallyname">Tally name</label>
-                <input type="text" name="tallyname" required [(ngModel)]="tally.name" class="form-control" id="tallyname" aria-describedby="tallyName" placeholder="Enter tally name">
+                <input type="text" name="tallyname" required [(ngModel)]="tally.name" class="form-control" value="1" id="tallyname" aria-describedby="tallyName" placeholder="Enter tally name">
             </div>
             <div class="row">
                 <div class="col">
                     <div class="form-group">
                         <label for="step"><small>Step</small></label>
-                        <input type="number" class="form-control form-control-sm" required [(ngModel)]="tally.step" id="step" placeholder="Step" name="tallystep">
+                        <input type="number" class="form-control form-control-sm" required [(ngModel)]="tally.step" value="1" id="step" placeholder="Step" name="tallystep">
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label for="count"><small>Current count</small></label>
-                        <input type="number" class="form-control form-control-sm" [(ngModel)]="tally.count" id="count" placeholder="Count" name="tallycount">
+                        <input type="number" class="form-control form-control-sm" [(ngModel)]="tally.count" value="1" id="count" placeholder="Count" name="tallycount">
                     </div>
                 </div>
                 <div class="col">

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Tally } from '../Tally';
 import { Uuid } from '../Uuid';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { LocalStorageServiceService } from '../local-storage-service.service';
+
 
 @Component({
   selector: 'app-add-tally',
@@ -10,11 +11,13 @@ import { LocalStorageServiceService } from '../local-storage-service.service';
   styleUrls: ['./add-tally.component.css']
 })
 export class AddTallyComponent implements OnInit {
+  @Input() tallies: Tally[];
+  @Input() callback: Function;
 
   tally = new Tally();
   constructor(
     private localStorageService: LocalStorageServiceService,
-    private router: Router
+    private routingService: Router
   ) {
     this.tally.uuid = Uuid.UUID();
     this.tally.count = 0;
@@ -25,8 +28,10 @@ export class AddTallyComponent implements OnInit {
   }
 
   public save(): void {
+    this.tallies.push(this.tally);
     this.localStorageService.add(this.tally);
-    this.router.navigate(['/']);
+    // run parent function to close accordion
+    this.callback(this.tally);
   }
 
 }
