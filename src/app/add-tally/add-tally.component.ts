@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Tally } from '../Tally';
 import { Uuid } from '../Uuid';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { LocalStorageServiceService } from '../local-storage-service.service';
 })
 export class AddTallyComponent implements OnInit {
   @Input() tallies: Tally[];
-  @Input() callback: Function;
+  @Output() callback: EventEmitter<Tally> = new EventEmitter<Tally>();
 
   tally = new Tally();
   constructor(
@@ -28,10 +28,9 @@ export class AddTallyComponent implements OnInit {
   }
 
   public save(): void {
-    this.tallies.push(this.tally);
+    this.tallies.unshift(this.tally);
     this.localStorageService.add(this.tally);
-    // run parent function to close accordion
-    this.callback(this.tally);
+    this.callback.emit(this.tally);
   }
 
 }

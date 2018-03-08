@@ -6,6 +6,7 @@ import { DatePipe } from '@angular/common';
 import { TimeAgoPipe } from 'time-ago-pipe';
 declare var jquery: any;
 declare var $: any;
+declare var window: any;
 
 
 
@@ -21,7 +22,7 @@ export class TalliesComponent implements OnInit {
   selectedTally;
 
   ngOnInit() {
-    this.tallies = this.localStorageService.getAll();
+    this.tallies = this.localStorageService.getAll().reverse();
     if (this.tallies.length === 0) {
       this.tallies = TALLIES;
       this.localStorageService.writeLS(this.tallies);
@@ -60,9 +61,10 @@ export class TalliesComponent implements OnInit {
     return false;
   }
 
-  public showMessage(tally: Tally) {
+  public onSave(tally: Tally) {
     // alert('Close accordion');
     $('#collapseOne').collapse('toggle');
     this.setSelectedTally(tally);
+    scrollTo(window.document.body, 0);
   }
 }
