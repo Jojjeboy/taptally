@@ -2,7 +2,11 @@
     <div class="col">
         <div class="col-12 mb-4">
             <div class="card">
-                <h3 class="card-header">{{ tally.name }}
+                <h3 class="card-header">
+                    <a href="/"><svg id="i-reply" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path d="M10 6 L3 14 10 22 M3 14 L18 14 C26 14 30 18 30 26" />
+                        </svg>
+                    </a> &nbsp; {{ tally.name }}
                     <div class="float-right">{{ tally.count }}</div>
                 </h3>
                 <div class="card-body">
@@ -58,7 +62,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <button (click)="save()" type="submit" class="btn btn-primary">Submit</button>
+                                <button (click)="save()" type="submit" class="btn btn-success">Submit</button>
                             </div>
                             <div class="col">
                                 <button class="btn btn-danger float-right" (click)="delete()">Delete</button>

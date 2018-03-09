@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   {
     path: '',
     component: TalliesComponent,
-    data: { title: 'Tallies List' }
+    data: { title: 'TapTally' }
   }
 ];
 
