@@ -22,18 +22,9 @@ const appRoutes: Routes = [
     component: AddTallyComponent
   },
   {
-    path: 'tallies',
+    path: '',
     component: TalliesComponent,
     data: { title: 'Tallies List' }
-  },
-  { path: '',
-    redirectTo: '/tallies',
-    pathMatch: 'full'
-  },
-
-  { path: 'tally',
-    redirectTo: '/tallies',
-    pathMatch: 'full'
   }
 ];
 
