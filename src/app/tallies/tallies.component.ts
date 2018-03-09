@@ -28,7 +28,7 @@ export class TalliesComponent implements OnInit {
       this.localStorageService.writeLS(this.tallies);
     }
     this.resetOld();
-    this.selectedTally = this.tallies[0];
+    this.setSelectedTally(this.tallies[0]);
   }
 
   public setSelectedTally(tally: Tally) {
@@ -62,9 +62,16 @@ export class TalliesComponent implements OnInit {
   }
 
   public onSave(tally: Tally) {
-    // alert('Close accordion');
     $('#addTallyContent').collapse('toggle');
+    this.localStorageService.update(tally);
     this.setSelectedTally(tally);
+    scrollTo(window.document.body, 0);
+  }
+
+  public onDelete(uuid: String) {
+    this.setSelectedTally(this.tallies[0]);
+    $('#editTallyContent').collapse('toggle');
+    this.localStorageService.removeItem(uuid);
     scrollTo(window.document.body, 0);
   }
 

@@ -43,12 +43,12 @@
 
                     <div id="addTallyContent" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
-                            <app-add-tally [tallies]="tallies" (callback)="onSave($event)"></app-add-tally>
+                            <app-add-tally [tallies]="tallies" (saveCallbackFunc)="onSave($event)"></app-add-tally>
                         </div>
                     </div>
                     <div id="editTallyContent" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
-                            <app-edit-tally [tally]="selectedTally" (callback)="onSave($event)"></app-edit-tally>
+                            <app-edit-tally [tally]="selectedTally" (deleteCallbackFunc)="onDelete($event)" (saveCallbackFunc)="onSave($event)"></app-edit-tally>
                         </div>
                     </div>
                 </div>

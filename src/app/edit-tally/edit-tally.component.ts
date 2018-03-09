@@ -11,7 +11,8 @@ import { LocalStorageServiceService } from '../local-storage-service.service';
 })
 export class EditTallyComponent implements OnInit {
   @Input() tally: Tally;
-  @Output() callback: EventEmitter<Tally> = new EventEmitter<Tally>();
+  @Output() deleteCallbackFunc: EventEmitter<String> = new EventEmitter<String>();
+  @Output() saveCallbackFunc: EventEmitter<Tally> = new EventEmitter<Tally>();
 
   constructor(
     private localStorageService: LocalStorageServiceService
@@ -24,11 +25,10 @@ export class EditTallyComponent implements OnInit {
   }
 
   public delete(): void {
-    this.localStorageService.removeItem(this.tally.uuid);
+    this.deleteCallbackFunc.emit(this.tally.uuid);
   }
 
   public save(): void {
-    this.localStorageService.update(this.tally);
-    this.callback.emit(this.tally);
+    this.saveCallbackFunc.emit(this.tally);
   }
 }
