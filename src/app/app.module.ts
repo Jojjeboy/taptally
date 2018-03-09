@@ -18,6 +18,10 @@ const appRoutes: Routes = [
     component: EditTallyComponent
   },
   {
+    path: 'tally/edit',
+    component: EditTallyComponent
+  },
+  {
     path: 'tally/add',
     component: AddTallyComponent
   },

@@ -20,6 +20,8 @@ export class EditTallyComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (params.id) {
         this.uuid = params.id;
+      } else {
+        this.uuid = this.localStorageService.getAll()[0].uuid;
       }
     });
   }
