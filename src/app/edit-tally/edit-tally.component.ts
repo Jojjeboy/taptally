@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Tally } from '../Tally';
@@ -10,37 +10,25 @@ import { LocalStorageServiceService } from '../local-storage-service.service';
   styleUrls: ['./edit-tally.component.css']
 })
 export class EditTallyComponent implements OnInit {
-  uuid = null;
-  tally: Tally = null;
+  @Input() tally: Tally;
+  @Output() callback: EventEmitter<Tally> = new EventEmitter<Tally>();
+
   constructor(
-    private route: ActivatedRoute,
-    private localStorageService: LocalStorageServiceService,
-    private router: Router
-  ) {
-    this.route.params.subscribe(params => {
-      if (params.id) {
-        this.uuid = params.id;
-      } else {
-        this.uuid = this.localStorageService.getAll()[0].uuid;
-      }
-    });
-  }
+    private localStorageService: LocalStorageServiceService
+  ) { }
 
   ngOnInit() {
-    this.tally = this.localStorageService.getItem(this.uuid);
     if (!this.tally) {
-      console.log('booooogus id');
-      this.router.navigate(['/']);
+      console.log('booooogus tally');
     }
   }
 
   public delete(): void {
-    this.localStorageService.removeItem(this.uuid);
-    this.router.navigate(['/']);
+    this.localStorageService.removeItem(this.tally.uuid);
   }
 
   public save(): void {
     this.localStorageService.update(this.tally);
-    this.router.navigate(['/']);
+    this.callback.emit(this.tally);
   }
 }

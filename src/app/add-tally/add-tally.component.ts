@@ -3,7 +3,9 @@ import { Tally } from '../Tally';
 import { Uuid } from '../Uuid';
 import { Router } from '@angular/router';
 import { LocalStorageServiceService } from '../local-storage-service.service';
-
+declare var jquery: any;
+declare var $: any;
+declare var window: any;
 
 @Component({
   selector: 'app-add-tally',
@@ -32,5 +34,6 @@ export class AddTallyComponent implements OnInit {
     this.localStorageService.add(this.tally);
     this.callback.emit(this.tally);
   }
+
 
 }

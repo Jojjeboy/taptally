@@ -63,8 +63,17 @@ export class TalliesComponent implements OnInit {
 
   public onSave(tally: Tally) {
     // alert('Close accordion');
-    $('#collapseOne').collapse('toggle');
+    $('#addTallyContent').collapse('toggle');
     this.setSelectedTally(tally);
     scrollTo(window.document.body, 0);
+  }
+
+  public toggleEditAccordion(tally: Tally) {
+    this.setSelectedTally(tally);
+    $('#editTallyContent').collapse('toggle');
+
+    $('#editTallyContent').on('shown.bs.collapse', function () {
+      scrollTo(window.document.body, $('body').height());
+    });
   }
 }

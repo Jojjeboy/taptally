@@ -7,7 +7,7 @@
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between p-0 border-right-0">
-                    <app-tally [tally]="selectedTally" class="card w-100 bg-tally-light"></app-tally>
+                    <app-tally [tally]="selectedTally" (toggleAccordion)="toggleEditAccordion($event)" class="card w-100 bg-tally-light"></app-tally>
                 </li>
                 <li (click)="setSelectedTally(tally)" class="list-group-item d-flex justify-content-between lh-condensed" [ngClass]="{'text-success':tally.uuid === selectedTally.uuid}" *ngFor="let tally of tallies">
                     <div>
@@ -35,15 +35,20 @@
                 <div class="card">
                     <div class="" id="headingOne">
                         <h5 class="mb-0">
-                            <button class="btn btn-success btn-block toggle-add-tally-btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="btn btn-success btn-block toggle-add-tally-btn" data-toggle="collapse" data-target="#addTallyContent" aria-expanded="true" aria-controls="collapseOne">
                 Add tally
               </button>
                         </h5>
                     </div>
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div id="addTallyContent" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <app-add-tally [tallies]="tallies" (callback)="onSave($event)"></app-add-tally>
+                        </div>
+                    </div>
+                    <div id="editTallyContent" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <app-edit-tally [tally]="selectedTally" (callback)="onSave($event)"></app-edit-tally>
                         </div>
                     </div>
                 </div>

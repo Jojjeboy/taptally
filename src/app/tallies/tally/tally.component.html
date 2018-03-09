@@ -3,11 +3,11 @@
         <svg id="i-reload" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M29 16 C29 22 24 29 16 29 8 29 3 22 3 16 3 10 8 3 16 3 21 3 25 6 27 9 M20 10 L27 9 28 2" />
         </svg> &nbsp;
-        <a href="/tally/edit/{{ tally.uuid }}">
+        <span (click)="goToDetailsPage()">
             <svg id="i-edit" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                 <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
             </svg>
-        </a>
+        </span>
         <span class="float-right">{{ tally.count }}</span></h5>
     <p class="card-text"><span>{{ tally.last | timeAgo }}</span></p>
     <button type="button" (click)="increase()" class="btn btn-outline-light outline-none">

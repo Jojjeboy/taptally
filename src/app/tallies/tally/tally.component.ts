@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Tally } from '../../Tally';
 import { TALLIES } from '../../mock-tallies';
 import { DatePipe } from '@angular/common';
@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 
 export class TallyComponent implements OnInit {
   @Input() tally: Tally;
+  @Output() toggleAccordion: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private localStorageService: LocalStorageServiceService, private router: Router) { }
   tallies = TALLIES;
@@ -41,7 +42,7 @@ export class TallyComponent implements OnInit {
 
   public goToDetailsPage() {
     if (this.localStorageService.itemExists(this.tally.uuid)) {
-      this.router.navigate(['tally/edit/' + this.tally.uuid]);
+      this.toggleAccordion.emit(this.tally);
     }
   }
 

@@ -14,18 +14,6 @@ import { AddTallyComponent } from './add-tally/add-tally.component';
 
 const appRoutes: Routes = [
   {
-    path: 'tally/edit/:id',
-    component: EditTallyComponent
-  },
-  {
-    path: 'tally/edit',
-    component: EditTallyComponent
-  },
-  {
-    path: 'tally/add',
-    component: AddTallyComponent
-  },
-  {
     path: '',
     component: TalliesComponent,
     data: { title: 'TapTally' }
