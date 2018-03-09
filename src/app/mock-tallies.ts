@@ -8,10 +8,10 @@ export const TALLIES: Tally[] = [
     {
       uuid: '69314ec3-c158-47bd-b5d4-ec4c4a4c2c60',
       name: 'Pushups',
-      step: 1,
-      goal: 30,
+      step: 25,
+      goal: 100,
       resetEveryday: true,
-      count: 55,
+      count: 0,
       last: first
     },
     {
