@@ -52,7 +52,7 @@ export class TalliesComponent implements OnInit {
     });
   }
 
-  isOld(tallyDate): Boolean {
+  isOld(tallyDate: Date): Boolean {
     const today = new Date();
     today.setHours(0, 0 , 0, 0);
     if (tallyDate < today) {
