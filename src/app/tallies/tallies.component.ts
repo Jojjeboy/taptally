@@ -19,7 +19,8 @@ export class TalliesComponent implements OnInit {
 
   constructor(private localStorageService: LocalStorageServiceService) { }
   tallies = [];
-  selectedTally;
+  selectedTally: Tally;
+  formMode: String = ' Add tally';
 
   ngOnInit() {
     this.tallies = this.localStorageService.getAll().reverse();
@@ -41,6 +42,10 @@ export class TalliesComponent implements OnInit {
 
   public isCurrentTally(tally: Tally) {
     return this.selectedTally.uuid === tally.uuid;
+  }
+
+  public setFormMode(formMode: String): void {
+    this.formMode = formMode;
   }
 
 
@@ -65,6 +70,7 @@ export class TalliesComponent implements OnInit {
     $('#addTallyContent').collapse('toggle');
     this.localStorageService.update(tally);
     this.setSelectedTally(tally);
+    this.setFormMode('Add Tally');
     scrollTo(window.document.body, 0);
   }
 
@@ -77,6 +83,7 @@ export class TalliesComponent implements OnInit {
 
   public toggleEditAccordion(tally: Tally) {
     this.setSelectedTally(tally);
+    this.setFormMode('Edit Tally');
     $('#editTallyContent').collapse('toggle');
 
     $('#editTallyContent').on('shown.bs.collapse', function () {
