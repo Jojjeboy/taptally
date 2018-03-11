@@ -84,6 +84,8 @@ export class TalliesComponent implements OnInit {
   public toggleEditAccordion(tally: Tally) {
     this.setSelectedTally(tally);
     this.setFormMode('Edit Tally');
+    $('#add-tally-accordion').toggle();
+    $('#edit-tally-accordion').toggleClass('d-none');
     $('#editTallyContent').collapse('toggle');
 
     $('#editTallyContent').on('shown.bs.collapse', function () {
